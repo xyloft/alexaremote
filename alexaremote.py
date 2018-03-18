@@ -3,6 +3,8 @@ from flask_ask import Ask, statement, convert_errors
 import RPi.GPIO as GPIO
 import subprocess
 import logging
+import time
+
 
 GPIO.setmode(GPIO.BCM)
 
@@ -29,18 +31,15 @@ def gpio_control(status, pin):
 @ask.intent('LIRCPower', mapping={'power': 'power'})
 def LIRCPower(power):
 
-    if power in ['on', 'off']
-    {
+    if power in ['on', 'off']:
         #turn receiver on (Technics)
-        subprocess.call("irsend SEND_ONCE Panasonic_EUR644340 KEY_POWER", shell=True)
+        #subprocess.call("irsend SEND_ONCE Panasonic_EUR644340 KEY_POWER", shell=True)
         #turn receiver on (Sony)
-        subprocess.call("irsend SEND_ONCE SONY_RM-U302 KEY_POWER", shell=True)
-
+        #subprocess.call("irsend SEND_ONCE SONY_RM-U302 KEY_POWER", shell=True)
+        #time.sleep (600.0 / 1000.0)
+        subprocess.call("irsend SEND_ONCE SONY_RM-U302 KEY_INP_TVDBS", shell=True)
         #turn TV on
-        subprocess.call("irsend SEND_ONCE Samsung_BN59-00678A KEY_POWER ", shell=True)
-        
-    }
-
-
-    return statement('Switching power {}'.format(power))
-
+        subprocess.call("irsend SEND_ONCE Samsung_BN59-00678A KEY_POWER", shell=True)
+        return statement('Switching power {}'.format(power))
+    else:
+        return statement('Unknown power status')
