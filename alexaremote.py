@@ -29,7 +29,17 @@ def gpio_control(status, pin):
 @ask.intent('LIRCPower', mapping={'power': 'power'})
 def LIRCPower(power):
 
-    if power in ['on', 'off']:    subprocess.call("irsend SEND_ONCE Panasonic_EUR644340 KEY_POWER", shell=True)
+    if power in ['on', 'off']
+    {
+        #turn receiver on (Technics)
+        subprocess.call("irsend SEND_ONCE Panasonic_EUR644340 KEY_POWER", shell=True)
+        #turn receiver on (Sony)
+        subprocess.call("irsend SEND_ONCE SONY_RM-U302 KEY_POWER", shell=True)
+
+        #turn TV on
+        subprocess.call("irsend SEND_ONCE Samsung_BN59-00678A KEY_POWER ", shell=True)
+        
+    }
 
 
     return statement('Switching power {}'.format(power))

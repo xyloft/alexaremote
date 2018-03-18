@@ -1,0 +1,142 @@
+
+codes and instructions from:
+http://www.hifi-remote.com/sony/Sony_rcvr.htm
+
+To work through an example, I can look up the data for a Sony CD. 
+There are multiple device codes, but assume for now I know my device code is 17. 
+The table gives the code 56 for STOP. 
+Convert 56 to the 7 bit binary value 0111000 and reverse it to get 0001110. 
+Convert 17 to the 5 bit binary value 10001 and reverse it to get 10001. 
+Put these together to et 000111010001, which is 1D1 hex, as before.
+
+Example
+My Sony Receiver 16
+bit length 12 
+Sony device code 16
+POWER 21
+command 21 -> binary 7 bits 
+0010101
+reverse binary
+1010100 
+device 16 -> binary  
+10000
+reverse binary 
+00001
+combined reversed command reversed device 
+101010000001
+HEX value
+A81 
+
+Pattern:
+KEY_NAME
+Command ##
+#######  = binary 
+reverse binary
+####### 
+device 16 reversed binary
+##### = binary
+combined Command
+############ = binary
+Hex value
+### = Hexadecimal
+
+VOL_UP
+Command 18
+0010010
+reverse binary
+0100100
+device 16 reversed binary
+00001
+combined Command
+010010000001
+Hex value
+481
+
+VOL_DOWN
+Command 19
+0010011
+reverse binary
+1100100
+device 16 reversed binary
+00001
+combined Command
+110010000001
+Hex value
+C81
+
+TV_INPUT
+Command 29
+0011101
+reverse binary
+1011100
+device 16 reversed binary
+00001
+combined Command
+101110000001
+Hex value
+B81
+
+
+CD_INPUT
+Command 37
+0100101
+reverse binary
+1010010
+device 16 reversed binary
+00001
+combined Command
+101001000001
+Hex value
+A41
+
+KEY_TVDBS 
+Command 106
+1101010
+reverse binary
+0101011
+device 16 reversed binary
+00001
+combined Command
+010101100001
+Hex value
+0D2
+
+KEY_VIDEO 
+Command 34
+0100010
+reverse binary
+0100010
+device 16 reversed binary
+00001
+combined Command
+010001000001
+Hex value
+441
+
+KEY_MUTE
+Command 20
+0010100
+reverse binary
+0010100
+device 16 reversed binary
+00001
+combined Command
+001010000001
+Hex value
+281
+
+KEY_SLEEP
+Command 96
+1100000
+reverse binary
+0000011
+device 16 reversed binary
+00001
+combined Command
+000001100001
+Hex value
+061
+
+
+
+ 
